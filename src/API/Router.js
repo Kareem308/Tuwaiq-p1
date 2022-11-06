@@ -1,20 +1,18 @@
-// import React from "react";
-// import Create from "./Create";
-// import Read from "./Read";
-// import Update from "./Update";
-// import { Routes, Route } from "react-router-dom";
+// import React from 'react'
+// import { Route, Routes } from "react-router-dom"
+// import Update from './Update'
+// import Create from './Create'
+// import Read from './Read'
+
 
 // function Router() {
-//   return (
-//     <div>
-      
-//         <Route path="/Create" element={<Create/>}></Route>
-//         <Route path="/Update" element={<Update/>}></Route>
-//         <Route path="/Read" element={<Read/>}></Route>
-    
-
-//     </div>
-//   );
+//     return (
+//         <Routes>
+//             <Route path='/Update/:id' element={<Update/>} />
+//             <Route path='/Details/:id' element={<Read/>} />
+//             <Route path='/Create' element={<Create/>} />
+//         </Routes>
+//     )
 // }
 
-// export default Router;
+// export default Router

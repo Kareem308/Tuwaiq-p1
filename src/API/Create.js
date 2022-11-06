@@ -27,7 +27,7 @@ function Create() {
             <input placeholder='fName' onChange={e => { setFName(e.target.value) }}></input>
             <input placeholder='lName' onChange={e => { setLName(e.target.value) }}></input>
 
-            <button onClick={postData}>login Page</button>
+            <button onClick={postData}>login</button>
 
         </div>
     )
