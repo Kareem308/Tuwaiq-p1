@@ -1,43 +1,36 @@
-import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Create() {
-    // const Nav = useNavigate()
-    const [Fname, setFname] = useState("");
-    const [Lname, setLname] = useState("");
-    let url = "https://6362424c7521369cd068e030.mockapi.io/project"
+    const navigate = useNavigate();
+    const [fName, setFName] = useState()
+    const [lName, setLName] = useState()
+    let url = "https://6362426266f75177ea2a9be0.mockapi.io/ToDo"
 
     const postData = () => {
         axios.post(url, {
-            Fname,
-            Lname
-        }).then(res => {
-            console.log(res);
+            fName,
+            lName
         })
+
+            .then(res => {
+                console.log(res);
+                localStorage.setItem("fName", res.data.fName)
+                localStorage.setItem("lName", res.data.lName)
+                localStorage.setItem("id", res.data.id)
+                navigate("/Read");
+            })
     }
-
-
-
     return (
-        <div className='form'>
-            <div>
-                <div>
+        <div>
 
-                    <input placeholder='Enter your first name here' onChange={e => { setFname(e.target.value) }}></input>
-                </div>
-                <div>
+            <input placeholder='fName' onChange={e => { setFName(e.target.value) }}></input>
+            <input placeholder='lName' onChange={e => { setLName(e.target.value) }}></input>
 
-                    <input placeholder='Enter your Last name here' onChange={e => { setLname(e.target.value) }}></input>
-                </div>
-                <center>
-                    <button onClick={postData}>Login</button>
-                    <div>
-                        <Link to="/Show">Click here to show data</Link>
-                    </div>
-                </center>
-            </div>
+            <button onClick={postData}>login Page</button>
+
         </div>
     )
 }
 
-export default Create
+export default Create;

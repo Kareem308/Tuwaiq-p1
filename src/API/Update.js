@@ -1,50 +1,50 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 function Update() {
     const navigate = useNavigate();
-    const [Fname, setFname] = useState("")
-    const [Lname, setLname] = useState("")
+    const [fName, setFName] = useState("")
+    const [lName, setLName] = useState("")
     const [id, setId] = useState("");
 
     useEffect(() => {
         setId(localStorage.getItem("id"));
-        setFname(localStorage.getItem("firstName"));
-        setLname(localStorage.getItem("lastName"));
+        setFName(localStorage.getItem("firstName"));
+        setLName(localStorage.getItem("lastName"));
     }, []);
 
     const updateData = () => {
-        axios.put(`https://6362424c7521369cd068e030.mockapi.io/project/${id}`, {
-            Fname,
-            Lname,
+        axios.put(`https://6362426266f75177ea2a9be0.mockapi.io/ToDo/${id}`, {
+            fName,
+            lName,
 
         }).then(res => {
             console.log(res.id);
-            navigate("/Show");
+            navigate("/Read");
         }).catch(err => {
             console.log(err);
         })
     }
 
     return (
-        <div className='form'>
-            <div>
-                <div>
-
-                    <input placeholder='Update your first name' onChange={e => { setFname(e.target.value) }}></input>
-                </div>
-                <div>
-
-                    <input placeholder='Update your Last name' onChange={e => { setLname(e.target.value) }}></input>
-                </div>
-                <center>
-                    <button onClick={updateData}>Update !</button>
-                </center>
-            </div>
+        <div>
+            <input
+                placeholder="firstName"
+                onChange={(e) => {
+                    setFName(e.target.value);
+                }}
+            ></input>
+            <input
+                placeholder="lastName"
+                onChange={(e) => {
+                    setLName(e.target.value);
+                }}
+            ></input>
+            
+            <button onClick={updateData}>Update</button>
         </div>
-    )
+    );
 }
 
 export default Update;
