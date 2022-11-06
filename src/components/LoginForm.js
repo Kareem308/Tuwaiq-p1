@@ -36,7 +36,7 @@ export default function LoginForm({ login, error }) {
           />
         </div>
 
-        <input className="mystyle" type="submit" value="Login" />
+        <input className="style" type="submit" value="Login" />
       </div>
     </form>
     

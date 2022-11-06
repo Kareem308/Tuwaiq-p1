@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import "./App.css";
+import { Routes, Route } from 'react-router-dom';
+import Create from './API/Create';
+import Show from './API/Show';
+import Update from './API/Update';
 
 function App() {
   const adminUser = {
@@ -56,6 +60,19 @@ function App() {
         <LoginForm login={login} error={error} />
       )}
     </div>
+  );
+  return (
+    <>
+      <>
+        <Routes>
+          <Route path='' element={<Create />}></Route>
+          <Route path="Show" element={<Show />}></Route>
+          <Route path="Update" element={<Update />}></Route>
+        </Routes>
+
+      </>
+    </>
+
   );
 }
 
